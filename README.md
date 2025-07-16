@@ -1,16 +1,38 @@
-# fruit_e_commerce
+# 🍓 FruitHUB – Flutter E-commerce App
 
-A new Flutter project.
+Welcome to **FruitHUB**, a beautiful and modern Flutter-based e-commerce application built to provide users with a seamless fruit shopping experience. Designed with scalability, performance, and user experience in mind — FruitHUB is perfect for both single vendors and marketplace models.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🧭 **Onboarding** and splash screen with smooth animations  
+- 🔐 **Authentication** (Email, Google, Apple) via Firebase  
+- 🛍️ **Product catalog** with categories, filters, and sorting  
+- 🛒 **Cart** management and real-time checkout  
+- 🧾 **Order tracking** and purchase history  
+- ⭐ **Product reviews** and ratings  
+- 🔔 **Push notifications** using FCM  
+- 🌐 **Localization** (RTL support for Arabic & English)  
+- 📦 **Firebase + Supabase hybrid integration**
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🔧 Tech Stack
+
+| Layer         | Tool/Service            |
+|---------------|-------------------------|
+| 💙 UI         | Flutter 3.22+           |
+| 🔥 Auth       | Firebase Auth           |
+| 🧠 State Mgmt | GetX / BLoC (Modular)   |
+| 🗃 DB         | Supabase PostgreSQL     |
+| 📤 Storage    | Firebase Storage        |
+| 📬 Realtime   | Supabase Subscriptions  |
+| 📲 Messaging  | Firebase Cloud Messaging|
+| 🌍 Localizing | `intl` / `flutter_localizations` |
+| 📊 Analytics  | Firebase + Crashlytics  |
+
+---
+
+## 🧱 Project Structure (Modular Clean Architecture)
+
