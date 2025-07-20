@@ -11,6 +11,7 @@ class FruitECommerce extends StatelessWidget {
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       child: const MaterialApp(
+        
         debugShowCheckedModeBanner: false,
         onGenerateRoute: onGenerateRoute,
         initialRoute: AppName.signInView,
