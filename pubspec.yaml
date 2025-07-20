@@ -8,9 +8,10 @@ environment:
   sdk: ^3.8.1
 
 dependencies:
+  awesome_snackbar_content: ^0.1.7
+  cupertino_icons: ^1.0.8
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.8
   flutter_launcher_icons: ^0.14.4
   flutter_localizations:
     sdk: flutter
