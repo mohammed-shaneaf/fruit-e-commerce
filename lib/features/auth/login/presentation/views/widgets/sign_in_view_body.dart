@@ -5,6 +5,8 @@ import 'package:fruit_e_commerce/common/widgets/auth_social_buttons.dart';
 import 'package:fruit_e_commerce/common/widgets/auth_text_field.dart';
 import 'package:fruit_e_commerce/common/widgets/custom_button.dart';
 import 'package:fruit_e_commerce/common/widgets/forget_password_text.dart';
+import 'package:fruit_e_commerce/core/extensions/navigation_extensions.dart';
+import 'package:fruit_e_commerce/features/auth/login/presentation/views/sign_up_view.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -73,7 +75,7 @@ class _SignInViewBodyState extends State<SignInViewBody> {
                 primaryText: 'Don\'t have an account?',
                 actionText: 'Sign Up',
                 onActionTap: () {
-                  // Navigator.pushNamed(context, SignupView.routeName);
+                  context.push(const SignUpView());
                 },
               ),
               37.verticalSpace,
