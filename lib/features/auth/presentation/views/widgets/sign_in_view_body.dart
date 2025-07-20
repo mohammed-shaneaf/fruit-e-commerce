@@ -6,7 +6,7 @@ import 'package:fruit_e_commerce/common/widgets/auth_text_field.dart';
 import 'package:fruit_e_commerce/common/widgets/custom_button.dart';
 import 'package:fruit_e_commerce/common/widgets/forget_password_text.dart';
 import 'package:fruit_e_commerce/core/extensions/navigation_extensions.dart';
-import 'package:fruit_e_commerce/features/auth/login/presentation/views/sign_up_view.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/views/sign_up_view.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
