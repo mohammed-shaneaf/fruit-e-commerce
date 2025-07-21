@@ -46,7 +46,6 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     }
 
     if (_formKey.currentState?.validate() ?? false) {
-     
     } else {
       setState(() {
         autovalidateMode = AutovalidateMode.always;
@@ -59,11 +58,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
       elevation: 0,
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
-      content: AwesomeSnackbarContent(
-        title: 'Oops!',
-        message: 'You must agree to the Terms and Conditions.',
-        contentType: ContentType.failure,
-      ),
+      content: AwesomeSnackbarContent(title: 'Oops!', message: 'You must agree to the Terms and Conditions.', contentType: ContentType.failure),
     );
   }
 
@@ -80,10 +75,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               24.verticalSpace,
               CustomTextFormField(hintText: 'Full Name', textInputType: TextInputType.name),
               16.verticalSpace,
-              AuthTextFields(
-                passwordController: passwordController,
-                emailController: emailController,
-              ),
+              AuthTextFields(passwordController: passwordController, emailController: emailController),
               16.verticalSpace,
 
               Row(
@@ -101,16 +93,11 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
                     child: Text.rich(
                       TextSpan(
                         text: 'By creating an account, ',
-                        style: TextStyle(
-                          color: Colors.grey, // base color
-                          fontSize: 14.sp,
-                        ),
+                        style: TextStyle(color: AppColorsManger.grayColor, fontSize: 14.sp),
                         children: [
                           TextSpan(
                             text: 'you agree to our Terms and Conditions.',
-                            style: AppTextStyles.regular16.copyWith(
-                              color: AppColorsManger.primaryColor,
-                            ),
+                            style: AppTextStyles.regular16.copyWith(color: AppColorsManger.primaryColor),
                           ),
                         ],
                       ),
@@ -120,11 +107,8 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
               ),
 
               33.verticalSpace,
-
               CustomButton(onPressed: _onSignUpPressed, text: 'Sign Up'),
-
               33.verticalSpace,
-
               AuthFooter(
                 primaryText: 'Already have an account?',
                 actionText: 'Sign In',
