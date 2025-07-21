@@ -12,17 +12,13 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl({required this.firebaseAuthService});
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(String email, String password, String name) async {
-    await firebaseAuthService.createUserWithEmailAndPassword(email: email, password: password, name: name);
     try {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(email: email, password: password, name: name);
-
       return Right(UserModel.fromFirebaseUser(user!));
     } on CustomAuthException catch (e) {
       return Left(ServerFailure(e.message));
     } catch (e) {
       return Left(ServerFailure(e.toString()));
     }
-
   }
-
 }

@@ -46,7 +46,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
     }
 
     if (_formKey.currentState?.validate() ?? false) {
-      // proceed with sign up
+     
     } else {
       setState(() {
         autovalidateMode = AutovalidateMode.always;
