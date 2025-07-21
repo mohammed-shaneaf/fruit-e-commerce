@@ -2,15 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fruit_e_commerce/core/themes/app_colors_manger.dart';
 
 class CustomTextFormField extends StatelessWidget {
-  const CustomTextFormField({
-    super.key,
-    required this.textInputType,
-    required this.hintText,
-    this.suffixIcon,
-    this.onSaved,
-    this.controller,
-    this.obscureText = false,
-  });
+  const CustomTextFormField({super.key, required this.textInputType, required this.hintText, this.suffixIcon, this.onSaved, this.controller, this.obscureText = false});
 
   final TextInputType textInputType;
   final String hintText;
