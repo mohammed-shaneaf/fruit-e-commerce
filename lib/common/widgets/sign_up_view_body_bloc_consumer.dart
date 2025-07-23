@@ -14,22 +14,33 @@ class SignUpViewBodyBlocConsumer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SignupCubit, SignupState>(
+      listenWhen: (previous, current) => current is SignupSuccess || current is SignupError,
       listener: (context, state) {
         if (state is SignupSuccess) {
-          context.pop();
-        }
-        if (state is SignupError) {
+          showAwesomeErrorSnackBar(context, 'Sign Up Success', state.userEntity.email);
+
+          Future.delayed(const Duration(milliseconds: 1200), () {
+            context.pop();
+          });
+        } else if (state is SignupError) {
           showAwesomeErrorSnackBar(context, 'Sign Up Failed', state.message);
         }
       },
       builder: (context, state) {
+        final isLoading = state is SignupLoading;
+
         return Stack(
           children: [
             const SignUpViewBody(),
-            if (state is SignupLoading)
-              Container(
-                color: Colors.black.withOpacity(0.4),
-                child: const Center(child: SpinKitCircle(color: AppColorsManger.primaryColor, size: 80.0)),
+
+            // Loading overlay
+            if (isLoading)
+              AbsorbPointer(
+                absorbing: true,
+                child: Container(
+                  color: Colors.black.withOpacity(0.4),
+                  child: const Center(child: SpinKitCircle(color: AppColorsManger.primaryColor, size: 80.0)),
+                ),
               ),
           ],
         );
