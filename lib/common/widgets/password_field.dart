@@ -68,17 +68,12 @@ class _PasswordFieldState extends State<PasswordField> {
                 LinearProgressIndicator(
                   value: strength,
                   backgroundColor: Colors.grey[300],
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    strength < 0.5 ? Colors.red : Colors.green,
-                  ),
+                  valueColor: AlwaysStoppedAnimation<Color>(strength < 0.5 ? Colors.red : Colors.green),
                 ),
                 SizedBox(height: 4.h),
                 Text(
-                  strength < 0.5 ? 'كلمة المرور ضعيفة' : 'كلمة المرور قوية',
-                  style: TextStyle(
-                    color: strength < 0.5 ? Colors.red : Colors.green,
-                    fontSize: 12.sp,
-                  ),
+                  strength < 0.4 ? 'كلمة المرور ضعيفة' : 'كلمة المرور قوية',
+                  style: TextStyle(color: strength < 0.5 ? Colors.red : Colors.green, fontSize: 11.sp),
                 ),
               ],
             );
