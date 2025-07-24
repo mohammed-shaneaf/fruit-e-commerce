@@ -1,3 +1,5 @@
+import 'dart:developer' as developer;
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_e_commerce/core/errors/exceptions.dart';
 import 'package:fruit_e_commerce/core/errors/failure.dart';
@@ -10,14 +12,35 @@ class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
 
   AuthRepoImpl({required this.firebaseAuthService});
+
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(String email, String password, String name) async {
+    developer.log("Attempting to create user: $email", name: 'AuthRepoImpl');
     try {
       var user = await firebaseAuthService.createUserWithEmailAndPassword(email: email, password: password, name: name);
+      developer.log("User creation successful: ${user?.uid}", name: 'AuthRepoImpl');
       return Right(UserModel.fromFirebaseUser(user!));
     } on CustomAuthException catch (e) {
+      developer.log("CustomAuthException: ${e.message}", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.message));
     } catch (e) {
+      developer.log("Unexpected error during user creation: $e", level: 1000, name: 'AuthRepoImpl');
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signinWithEmailAndPassword(String email, String password) async {
+    developer.log("Attempting sign-in for user: $email", name: 'AuthRepoImpl');
+    try {
+      var user = await firebaseAuthService.signInWithEmailAndPassword(email: email, password: password);
+      developer.log("User sign-in successful: ${user?.uid}", name: 'AuthRepoImpl');
+      return Right(UserModel.fromFirebaseUser(user!));
+    } on CustomAuthException catch (e) {
+      developer.log("CustomAuthException during sign-in: ${e.message}", level: 1000, name: 'AuthRepoImpl');
+      return Left(ServerFailure(e.message));
+    } catch (e) {
+      developer.log("Unexpected error during sign-in: $e", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.toString()));
     }
   }

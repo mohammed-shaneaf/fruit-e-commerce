@@ -4,8 +4,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:fruit_e_commerce/core/extensions/navigation_extensions.dart';
 import 'package:fruit_e_commerce/core/themes/app_colors_manger.dart';
 import 'package:fruit_e_commerce/core/utils/awesome_snack_bar.dart';
-import 'package:fruit_e_commerce/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
-import 'package:fruit_e_commerce/features/auth/presentation/manager/signup_cubit/signup_state.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/manager/signup/signup_cubit.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/manager/signup/signup_state.dart';
 import 'package:fruit_e_commerce/features/auth/presentation/views/widgets/sign_up_view_body.dart';
 
 class SignUpViewBodyBlocConsumer extends StatelessWidget {

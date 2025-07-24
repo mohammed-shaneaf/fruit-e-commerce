@@ -10,7 +10,7 @@ import 'package:fruit_e_commerce/common/widgets/custom_text_form_field.dart';
 import 'package:fruit_e_commerce/core/extensions/navigation_extensions.dart';
 import 'package:fruit_e_commerce/core/style/app_text_style.dart';
 import 'package:fruit_e_commerce/core/themes/app_colors_manger.dart';
-import 'package:fruit_e_commerce/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/manager/signup/signup_cubit.dart';
 
 class SignUpViewBody extends StatefulWidget {
   const SignUpViewBody({super.key});
