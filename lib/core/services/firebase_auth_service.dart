@@ -2,6 +2,7 @@ import 'dart:developer' as developer;
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_e_commerce/core/errors/exceptions.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -32,8 +33,24 @@ class FirebaseAuthService {
       developer.log("User signed in: ${userCredential.user?.uid}", name: 'FirebaseAuthService');
       return userCredential.user;
     } on FirebaseAuthException catch (e, stackTrace) {
-      developer.log("FirebaseAuthException caught during sign in: ${e.code}", error: e, stackTrace: stackTrace, level: 1000, name: 'FirebaseAuthService');
+      developer.log(
+        "FirebaseAuthException caught during sign in: ${e.code}",
+        error: e,
+        stackTrace: stackTrace,
+        level: 1000,
+        name: 'FirebaseAuthService',
+      );
       throw CustomAuthException.fromFirebaseAuthException(e.code);
     }
+  }
+
+  Future<UserCredential> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(accessToken: googleAuth?.accessToken, idToken: googleAuth?.idToken);
+
+    return await FirebaseAuth.instance.signInWithCredential(credential);
   }
 }
