@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_e_commerce/common/widgets/auth_footer.dart';
 import 'package:fruit_e_commerce/common/widgets/auth_social_buttons.dart';
@@ -6,7 +7,8 @@ import 'package:fruit_e_commerce/common/widgets/auth_text_field.dart';
 import 'package:fruit_e_commerce/common/widgets/custom_button.dart';
 import 'package:fruit_e_commerce/common/widgets/forget_password_text.dart';
 import 'package:fruit_e_commerce/core/extensions/navigation_extensions.dart';
-import 'package:fruit_e_commerce/features/auth/login/presentation/views/sign_up_view.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/manager/signin/signin_cubit.dart';
+import 'package:fruit_e_commerce/features/auth/presentation/views/sign_up_view.dart';
 
 class SignInViewBody extends StatefulWidget {
   const SignInViewBody({super.key});
@@ -47,26 +49,20 @@ class _SignInViewBodyState extends State<SignInViewBody> {
           child: Column(
             children: [
               24.verticalSpace,
-              AuthTextFields(
-                passwordController: passwordController,
-                emailController: emailController,
-              ),
+              AuthTextFields(passwordController: passwordController, emailController: emailController),
               16.verticalSpace,
               const ForgotPasswordText(),
               33.verticalSpace,
               CustomButton(
                 onPressed: () {
-                  // if (_formKey.currentState != null && _formKey.currentState!.validate()) {
-                  //   _formKey.currentState!.save();
-                  //   context.read<SigninCubit>().signIn(
-                  //     emailController.text,
-                  //     passwordController.text,
-                  //   );
-                  // } else {
-                  //   setState(() {
-                  //     autovalidateMode = AutovalidateMode.always;
-                  //   });
-                  // }
+                  if (_formKey.currentState != null && _formKey.currentState!.validate()) {
+                    _formKey.currentState!.save();
+                    context.read<SigninCubit>().signinUser(email: emailController.text, password: passwordController.text);
+                  } else {
+                    setState(() {
+                      autovalidateMode = AutovalidateMode.always;
+                    });
+                  }
                 },
                 text: 'Sign In',
               ),
