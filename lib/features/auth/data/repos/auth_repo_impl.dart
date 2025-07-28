@@ -1,6 +1,7 @@
 import 'dart:developer' as developer;
 
 import 'package:dartz/dartz.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fruit_e_commerce/core/errors/exceptions.dart';
 import 'package:fruit_e_commerce/core/errors/failure.dart';
 import 'package:fruit_e_commerce/core/services/data_base_service.dart';
@@ -17,20 +18,36 @@ class AuthRepoImpl extends AuthRepo {
   AuthRepoImpl({required this.firebaseAuthService, required this.dataBaseService});
 
   @override
-  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(String email, String password, String name) async {
+  Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
+    String email,
+    String password,
+    String name,
+  ) async {
     developer.log("Attempting to create user: $email", name: 'AuthRepoImpl');
-    try {
-      var user = await firebaseAuthService.createUserWithEmailAndPassword(email: email, password: password, name: name);
 
-      var userEntity = UserModel.fromFirebaseUser(user!);
+    User? user;
+    try {
+      user = await firebaseAuthService.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+        name: name,
+      );
+
+      var userEntity = UserEntity(name: name, email: email, uId: user!.uid);
       await addUserData(user: userEntity);
 
       developer.log("User creation successful: ${user.uid}", name: 'AuthRepoImpl');
       return Right(userEntity);
     } on CustomAuthException catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       developer.log("CustomAuthException: ${e.message}", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.message));
     } catch (e) {
+      if (user != null) {
+        await firebaseAuthService.deleteUser();
+      }
       developer.log("Unexpected error during user creation: $e", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.toString()));
     }
@@ -66,6 +83,7 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future addUserData({required UserEntity user}) async {
+    // throw CustomAuthException('Something Wrong Happend , try again latter');
     await dataBaseService.addData(path: BackendEndpoints.addUserData, data: user.toMap());
   }
 }

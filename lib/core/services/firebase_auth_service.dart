@@ -7,6 +7,10 @@ import 'package:google_sign_in/google_sign_in.dart';
 class FirebaseAuthService {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
+  Future deleteUser() async {
+    await _firebaseAuth.currentUser!.delete();
+  }
+
   Future<User?> createUserWithEmailAndPassword({required String email, required String password, required String name}) async {
     developer.log("Creating user with email: $email", name: 'FirebaseAuthService');
     try {
