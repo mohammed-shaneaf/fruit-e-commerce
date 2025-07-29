@@ -12,7 +12,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => const SignUpView());
     default:
       return MaterialPageRoute(
-        builder: (context) => Scaffold(body: Center(child: Text('No route defined for ${settings.name}'))),
+        builder: (context) => Scaffold(
+          body: Center(child: Text('No route defined for ${settings.name}')),
+        ),
       );
   }
 }

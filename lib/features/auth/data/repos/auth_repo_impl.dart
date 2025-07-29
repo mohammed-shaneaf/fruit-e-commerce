@@ -15,7 +15,10 @@ class AuthRepoImpl extends AuthRepo {
   final FirebaseAuthService firebaseAuthService;
   final DataBaseService dataBaseService;
 
-  AuthRepoImpl({required this.firebaseAuthService, required this.dataBaseService});
+  AuthRepoImpl({
+    required this.firebaseAuthService,
+    required this.dataBaseService,
+  });
 
   @override
   Future<Either<Failure, UserEntity>> createUserWithEmailAndPassword(
@@ -36,15 +39,26 @@ class AuthRepoImpl extends AuthRepo {
       var userEntity = UserEntity(name: name, email: email, uId: user!.uid);
       await addUserData(user: userEntity);
 
-      developer.log("User creation successful: ${user.uid}", name: 'AuthRepoImpl');
+      developer.log(
+        "User creation successful: ${user.uid}",
+        name: 'AuthRepoImpl',
+      );
       return Right(userEntity);
     } on CustomAuthException catch (e) {
       await deleteUserRecord(user);
-      developer.log("CustomAuthException: ${e.message}", level: 1000, name: 'AuthRepoImpl');
+      developer.log(
+        "CustomAuthException: ${e.message}",
+        level: 1000,
+        name: 'AuthRepoImpl',
+      );
       return Left(ServerFailure(e.message));
     } catch (e) {
       await deleteUserRecord(user);
-      developer.log("Unexpected error during user creation: $e", level: 1000, name: 'AuthRepoImpl');
+      developer.log(
+        "Unexpected error during user creation: $e",
+        level: 1000,
+        name: 'AuthRepoImpl',
+      );
       return Left(ServerFailure(e.toString()));
     }
   }
@@ -56,19 +70,36 @@ class AuthRepoImpl extends AuthRepo {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> signinWithEmailAndPassword(String email, String password) async {
+  Future<Either<Failure, UserEntity>> signinWithEmailAndPassword(
+    String email,
+    String password,
+  ) async {
     developer.log("Attempting sign-in for user: $email", name: 'AuthRepoImpl');
     try {
-      var user = await firebaseAuthService.signInWithEmailAndPassword(email: email, password: password);
-      developer.log("User sign-in successful: ${user?.uid}", name: 'AuthRepoImpl');
+      var user = await firebaseAuthService.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      developer.log(
+        "User sign-in successful: ${user?.uid}",
+        name: 'AuthRepoImpl',
+      );
 
       var userEntity = await getUserData(uId: user!.uid);
       return Right(userEntity);
     } on CustomAuthException catch (e) {
-      developer.log("CustomAuthException during sign-in: ${e.message}", level: 1000, name: 'AuthRepoImpl');
+      developer.log(
+        "CustomAuthException during sign-in: ${e.message}",
+        level: 1000,
+        name: 'AuthRepoImpl',
+      );
       return Left(ServerFailure(e.message));
     } catch (e) {
-      developer.log("Unexpected error during sign-in: $e", level: 1000, name: 'AuthRepoImpl');
+      developer.log(
+        "Unexpected error during sign-in: $e",
+        level: 1000,
+        name: 'AuthRepoImpl',
+      );
       return Left(ServerFailure(e.toString()));
     }
   }
@@ -93,12 +124,18 @@ class AuthRepoImpl extends AuthRepo {
   @override
   Future addUserData({required UserEntity user}) async {
     // throw CustomAuthException('Something Wrong Happend , try again latter');
-    await dataBaseService.addData(path: BackendEndpoints.addUserData, data: user.toMap());
+    await dataBaseService.addData(
+      path: BackendEndpoints.addUserData,
+      data: user.toMap(),
+    );
   }
 
   @override
   Future<UserEntity> getUserData({required String uId}) async {
-    var userData = await dataBaseService.getData(path: BackendEndpoints.getUserData, doucmnetId: uId);
+    var userData = await dataBaseService.getData(
+      path: BackendEndpoints.getUserData,
+      doucmnetId: uId,
+    );
     return UserModel.fromJson(userData);
   }
 }
