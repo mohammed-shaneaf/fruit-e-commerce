@@ -39,17 +39,19 @@ class AuthRepoImpl extends AuthRepo {
       developer.log("User creation successful: ${user.uid}", name: 'AuthRepoImpl');
       return Right(userEntity);
     } on CustomAuthException catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUserRecord(user);
       developer.log("CustomAuthException: ${e.message}", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.message));
     } catch (e) {
-      if (user != null) {
-        await firebaseAuthService.deleteUser();
-      }
+      await deleteUserRecord(user);
       developer.log("Unexpected error during user creation: $e", level: 1000, name: 'AuthRepoImpl');
       return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  Future<void> deleteUserRecord(User? user) async {
+    if (user != null) {
+      await firebaseAuthService.deleteUser();
     }
   }
 
@@ -71,10 +73,15 @@ class AuthRepoImpl extends AuthRepo {
 
   @override
   Future<Either<Failure, UserEntity>> signinWithGoogle() async {
+    User? user;
     try {
       var user = await firebaseAuthService.signInWithGoogle();
-      return Right(UserModel.fromFirebaseUser(user.user!));
+
+      var userEntity = UserModel.fromFirebaseUser(user.user!);
+      await addUserData(user: UserModel.fromFirebaseUser(user.user!));
+      return Right(userEntity);
     } on CustomAuthException catch (e) {
+      await deleteUserRecord(user);
       return Left(ServerFailure(e.message));
     } catch (e) {
       return Left(ServerFailure(e.toString()));
