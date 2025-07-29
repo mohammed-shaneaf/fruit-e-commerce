@@ -1,6 +1,7 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:fruit_e_commerce/app/app_name.dart';
 import 'package:fruit_e_commerce/common/widgets/custom_spinkit_indicator.dart';
 import 'package:fruit_e_commerce/core/utils/awesome_snack_bar.dart';
 import 'package:fruit_e_commerce/features/auth/presentation/manager/signin/signin_cubit.dart';
@@ -21,10 +22,16 @@ class SigninViewBodyBlocCosnumer extends StatelessWidget {
             message: 'Welcome ${state.userEntity.name}',
             contentType: ContentType.success,
           );
+          Navigator.pushNamed(context, AppName.homeview);
         }
 
         if (state is SigninFailure) {
-          showAwesomeSnackBar(context: context, title: 'Sign In Failed', message: state.message, contentType: ContentType.failure);
+          showAwesomeSnackBar(
+            context: context,
+            title: 'Sign In Failed',
+            message: state.message,
+            contentType: ContentType.failure,
+          );
         }
       },
       builder: (context, state) {
