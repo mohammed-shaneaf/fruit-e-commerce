@@ -12,4 +12,6 @@ abstract class AuthRepo {
   // if you want to add data and this data is stored in database , it's recommended to use model to store the data and handle it with
 
   Future addUserData({required UserEntity user});
+
+  Future<UserEntity> getUserData ({required String uId});
 }
