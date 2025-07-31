@@ -7,7 +7,7 @@ class CustomHomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final isRtl = Directionality.of(context) == TextDirection.rtl;
+    final isRtl = Directionality.of(context) == TextDirection.ltr;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12),
@@ -26,8 +26,15 @@ class CustomHomeAppBar extends StatelessWidget {
     return Container(
       width: 40,
       height: 40,
-      decoration: BoxDecoration(shape: BoxShape.circle, color: Color(0xffeef8ed)),
-      child: const Icon(Icons.notifications_none, color: Colors.black54, size: 24),
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        color: Color(0xffeef8ed),
+      ),
+      child: const Icon(
+        Icons.notifications_none,
+        color: Colors.black54,
+        size: 24,
+      ),
     );
   }
 
@@ -42,11 +49,15 @@ class CustomHomeAppBar extends StatelessWidget {
         ),
         const SizedBox(width: 12),
         Column(
-          crossAxisAlignment: isRtl ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+          crossAxisAlignment: isRtl
+              ? CrossAxisAlignment.end
+              : CrossAxisAlignment.start,
           children: [
             Text(
               'صباح الخير !..',
-              style: AppTextStyles.regular16.copyWith(color: AppColorsManger.grayColor),
+              style: AppTextStyles.regular16.copyWith(
+                color: AppColorsManger.grayColor,
+              ),
               textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
             ),
             Text(
