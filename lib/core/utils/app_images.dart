@@ -6,6 +6,14 @@ class Assets {
   /// assets/images/apple_icon.svg
   static const String assetsImagesAppleIcon = "assets/images/apple_icon.svg";
 
+  /// Assets for assetsImagesFeaturedFruitItem
+  /// assets/images/featured_fruit_item.png
+  static const String assetsImagesFeaturedFruitItem = "assets/images/featured_fruit_item.png";
+
+  /// Assets for assetsImagesFeaturedItemShape
+  /// assets/images/featured_item_shape.svg
+  static const String assetsImagesFeaturedItemShape = "assets/images/featured_item_shape.svg";
+
   /// Assets for assetsImagesFecebookIcon
   /// assets/images/fecebook_icon.svg
   static const String assetsImagesFecebookIcon = "assets/images/fecebook_icon.svg";

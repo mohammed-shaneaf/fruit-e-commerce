@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fruit_e_commerce/features/home/presentation/views/widgets/custom_home_app_bar.dart';
+import 'package:fruit_e_commerce/features/home/presentation/views/widgets/featured_item.dart';
 import 'package:fruit_e_commerce/features/home/presentation/views/widgets/search_home_text_field.dart';
 
 class HomeViewBody extends StatelessWidget {
@@ -18,6 +19,8 @@ class HomeViewBody extends StatelessWidget {
                 CustomHomeAppBar(),
                 16.verticalSpace,
                 SearchHomeTextField(),
+                12.verticalSpace,
+                FeaturedItem(),
               ],
             ),
           ),
