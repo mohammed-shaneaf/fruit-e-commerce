@@ -9,4 +9,5 @@ abstract class AppColorsManger {
   static const Color whiteColor = Colors.white;
   static const Color grayColor = Color(0xff949D9E);
   static const Color limeGrenn = Color(0xff5db957);
+  static const Color yellow = Color(0xFFF4A91F);
 }
