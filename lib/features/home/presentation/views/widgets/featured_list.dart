@@ -6,17 +6,20 @@ class FeaturedList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: [
-          ...List.generate(4, (index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: const FeaturedItem(),
-            );
-          }),
-        ],
+    return Directionality(
+      textDirection: TextDirection.rtl,
+      child: SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            ...List.generate(4, (index) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                child: const FeaturedItem(),
+              );
+            }),
+          ],
+        ),
       ),
     );
   }
