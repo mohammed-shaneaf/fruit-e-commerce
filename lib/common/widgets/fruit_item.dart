@@ -10,8 +10,8 @@ class FruitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // width: 163,
-      // height: 230,  // just test don't write fixed value for resposive
+      width: 163,
+      height: 230, // just test don't write fixed value for resposive
       decoration: ShapeDecoration(
         color: Color(0xFFF3F5F7),
         shape: RoundedRectangleBorder(
@@ -68,9 +68,23 @@ class FruitItem extends StatelessWidget {
                       ],
                     ),
                   ),
-                  trailing: const CircleAvatar(
-                    backgroundColor: AppColorsManger.primaryColor,
-                    child: Icon(Icons.add, color: Colors.white),
+                  trailing: LayoutBuilder(
+                    builder: (context, constraints) {
+                      double size = constraints.maxWidth * 0.30;
+                      return SizedBox(
+                        width: size,
+                        height: size,
+                        child: FloatingActionButton(
+                          backgroundColor: AppColorsManger.primaryColor,
+                          onPressed: () {},
+                          child: Icon(
+                            Icons.add,
+                            color: Colors.white,
+                            size: size * 0.4,
+                          ), // responsive icon
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

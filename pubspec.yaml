@@ -36,6 +36,8 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/bold/
+    - assets/images/outline/
 
 flutter_launcher_icons:
   android: true

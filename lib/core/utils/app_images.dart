@@ -6,6 +6,22 @@ class Assets {
   /// assets/images/apple_icon.svg
   static const String assetsImagesAppleIcon = "assets/images/apple_icon.svg";
 
+  /// Assets for assetsImagesBoldHomeBold
+  /// assets/images/bold/home_bold.svg
+  static const String assetsImagesBoldHomeBold = "assets/images/bold/home_bold.svg";
+
+  /// Assets for assetsImagesBoldProductsBold
+  /// assets/images/bold/products_bold.svg
+  static const String assetsImagesBoldProductsBold = "assets/images/bold/products_bold.svg";
+
+  /// Assets for assetsImagesBoldProfileBold
+  /// assets/images/bold/profile_bold.svg
+  static const String assetsImagesBoldProfileBold = "assets/images/bold/profile_bold.svg";
+
+  /// Assets for assetsImagesBoldShoppingCartBold
+  /// assets/images/bold/shopping_cart_bold.svg
+  static const String assetsImagesBoldShoppingCartBold = "assets/images/bold/shopping_cart_bold.svg";
+
   /// Assets for assetsImagesFeaturedFruitItem
   /// assets/images/featured_fruit_item.png
   static const String assetsImagesFeaturedFruitItem = "assets/images/featured_fruit_item.png";
@@ -37,6 +53,22 @@ class Assets {
   /// Assets for assetsImagesNotification
   /// assets/images/notification.svg
   static const String assetsImagesNotification = "assets/images/notification.svg";
+
+  /// Assets for assetsImagesOutlineHomeOutline
+  /// assets/images/outline/home_outline.svg
+  static const String assetsImagesOutlineHomeOutline = "assets/images/outline/home_outline.svg";
+
+  /// Assets for assetsImagesOutlineProductsOutline
+  /// assets/images/outline/products_outline.svg
+  static const String assetsImagesOutlineProductsOutline = "assets/images/outline/products_outline.svg";
+
+  /// Assets for assetsImagesOutlineProfileOutline
+  /// assets/images/outline/profile_outline.svg
+  static const String assetsImagesOutlineProfileOutline = "assets/images/outline/profile_outline.svg";
+
+  /// Assets for assetsImagesOutlineShoppingCartOutline
+  /// assets/images/outline/shopping_cart_outline.svg
+  static const String assetsImagesOutlineShoppingCartOutline = "assets/images/outline/shopping_cart_outline.svg";
 
   /// Assets for assetsImagesSearch
   /// assets/images/search.svg
