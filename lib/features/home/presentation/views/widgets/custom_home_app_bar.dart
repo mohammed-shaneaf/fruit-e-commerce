@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fruit_e_commerce/common/widgets/notfication_widget.dart';
 import 'package:fruit_e_commerce/core/style/app_text_style.dart';
 import 'package:fruit_e_commerce/core/themes/app_colors_manger.dart';
 
@@ -23,19 +24,7 @@ class CustomHomeAppBar extends StatelessWidget {
   }
 
   Widget _buildNotificationIcon() {
-    return Container(
-      width: 40,
-      height: 40,
-      decoration: BoxDecoration(
-        shape: BoxShape.circle,
-        color: Color(0xffeef8ed),
-      ),
-      child: const Icon(
-        Icons.notifications_none,
-        color: Colors.black54,
-        size: 24,
-      ),
-    );
+    return NotificationWidget();
   }
 
   Widget _buildUserInfo(BuildContext context, bool isRtl) {
@@ -71,3 +60,4 @@ class CustomHomeAppBar extends StatelessWidget {
     );
   }
 }
+

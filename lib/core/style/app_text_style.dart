@@ -36,6 +36,11 @@ abstract class AppTextStyles {
     fontSize: 16,
   );
 
+  static TextStyle semiBold19 = TextStyle(
+    fontWeight: FontWeight.w600,
+    fontSize: 19,
+  );
+
   static TextStyle bold28 = TextStyle(
     fontWeight: FontWeight.bold,
     fontSize: 28,
