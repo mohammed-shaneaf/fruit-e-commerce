@@ -56,7 +56,7 @@ class SearchHomeTextField extends StatelessWidget {
   OutlineInputBorder buildBorder() {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(6),
-      borderSide: BorderSide(color: AppColorsManger.grayColor, width: 1),
+      borderSide: const BorderSide(color: AppColorsManger.grayColor, width: 1),
     );
   }
 }

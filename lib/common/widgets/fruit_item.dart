@@ -13,7 +13,7 @@ class FruitItem extends StatelessWidget {
       width: 163,
       height: 230, // just test don't write fixed value for resposive
       decoration: ShapeDecoration(
-        color: Color(0xFFF3F5F7),
+        color: const Color(0xFFF3F5F7),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadiusGeometry.circular(4),
         ),
@@ -25,7 +25,7 @@ class FruitItem extends StatelessWidget {
             right: 0,
             child: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.favorite_outline),
+              icon: const Icon(Icons.favorite_outline),
             ),
           ),
           Positioned.fill(
@@ -55,7 +55,7 @@ class FruitItem extends StatelessWidget {
                             color: AppColorsManger.secondaryColor,
                           ),
                         ),
-                        TextSpan(
+                        const TextSpan(
                           text: ' / ',
                           style: TextStyle(fontSize: 16, color: Colors.black),
                         ),

@@ -7,12 +7,12 @@ AppBar buildAppBar(BuildContext context, String title) {
       onPressed: () {
         Navigator.pop(context);
       },
-      icon: Icon(Icons.arrow_back_ios, size: 18),
+      icon: const Icon(Icons.arrow_back_ios, size: 18),
     ),
     backgroundColor: Colors.transparent,
     title: Text(title, style: AppTextStyles.bold19),
     centerTitle: true,
-    actions: [
+    actions: const [
       // Padding(
       //   padding: const EdgeInsets.symmetric(horizontal: 16),
       //   child: CustomNotificationWidget(),

@@ -15,10 +15,10 @@ class BestSellingHeader extends StatelessWidget {
       child: Row(
         children: [
           Text('الأكثر مبيعا', style: AppTextStyles.bold16),
-          Spacer(),
+          const Spacer(),
           Text(
             'المزيد',
-            style: AppTextStyles.regular13.copyWith(color: Color(0xFF949D9E)),
+            style: AppTextStyles.regular13.copyWith(color: const Color(0xFF949D9E)),
           ),
         ],
       ),

@@ -45,14 +45,14 @@ class _PasswordFieldState extends State<PasswordField> {
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 31.w),
               child: AnimatedSwitcher(
-                duration: Duration(milliseconds: 400),
+                duration: const Duration(milliseconds: 400),
                 transitionBuilder: (Widget child, Animation<double> animation) {
                   return FadeTransition(opacity: animation, child: child);
                 },
                 child: Icon(
                   obscureText ? Icons.visibility : Icons.visibility_off,
                   key: ValueKey<bool>(obscureText),
-                  color: Color(0xffC9CECF),
+                  color: const Color(0xffC9CECF),
                 ),
               ),
             ),

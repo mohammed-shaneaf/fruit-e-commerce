@@ -8,7 +8,7 @@ class NotificationWidget extends StatelessWidget {
     return Container(
       width: 40,
       height: 40,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: Color(0xffeef8ed),
       ),

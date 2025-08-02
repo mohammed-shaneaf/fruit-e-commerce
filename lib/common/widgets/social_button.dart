@@ -23,11 +23,11 @@ class SocialButton extends StatelessWidget {
         style: TextButton.styleFrom(
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16), // BorderRadius 16
-            side: BorderSide(color: Color(0xFFDDDFDF), width: 1),
+            side: const BorderSide(color: Color(0xFFDDDFDF), width: 1),
           ),
         ),
         child: ListTile(
-          visualDensity: VisualDensity(vertical: VisualDensity.minimumDensity),
+          visualDensity: const VisualDensity(vertical: VisualDensity.minimumDensity),
           // leading: SvgPicture.asset(image, width: 24, height: 24),
           title: Text(title, style: AppTextStyles.bold16, textAlign: TextAlign.center),
         ),

@@ -24,7 +24,7 @@ class CustomHomeAppBar extends StatelessWidget {
   }
 
   Widget _buildNotificationIcon() {
-    return NotificationWidget();
+    return const NotificationWidget();
   }
 
   Widget _buildUserInfo(BuildContext context, bool isRtl) {

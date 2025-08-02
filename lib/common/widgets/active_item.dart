@@ -20,7 +20,7 @@ class ActiveItem extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(35),
           ),
-          color: Color(0xffeeeeee),
+          color: const Color(0xffeeeeee),
         ),
         child: Row(
           children: [

@@ -14,7 +14,7 @@ class FruitECommerce extends StatelessWidget {
       designSize: const Size(375, 812),
       child: MaterialApp(
         locale: const Locale('ar'),
-        localizationsDelegates: [
+        localizationsDelegates: const [
           S.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate,

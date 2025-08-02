@@ -18,18 +18,18 @@ class HomeViewBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Column(
               children: [
-                CustomHomeAppBar(),
+                const CustomHomeAppBar(),
                 16.verticalSpace,
-                SearchHomeTextField(),
+                const SearchHomeTextField(),
                 12.verticalSpace,
-                FeaturedList(),
+                const FeaturedList(),
                 12.verticalSpace,
-                BestSellingHeader(),
+                const BestSellingHeader(),
                 8.verticalSpace,
               ],
             ),
           ),
-          BestSellingGirdView(),
+          const BestSellingGirdView(),
         ],
       ),
     );

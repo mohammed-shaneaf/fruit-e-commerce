@@ -7,6 +7,6 @@ class CustomSpinKitIndicator extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SpinKitCircle(color: AppColorsManger.primaryColor, size: 80.0);
+    return const SpinKitCircle(color: AppColorsManger.primaryColor, size: 80.0);
   }
 }

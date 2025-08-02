@@ -15,10 +15,10 @@ AppBar customAppBar(context, {required String title}) {
     ),
 
     centerTitle: true,
-    actions: [
+    actions: const [
       Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16),
-        child: const NotificationWidget(),
+        padding: EdgeInsets.symmetric(horizontal: 16),
+        child: NotificationWidget(),
       ),
     ],
   );

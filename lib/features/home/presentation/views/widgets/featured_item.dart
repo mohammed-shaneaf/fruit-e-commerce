@@ -30,7 +30,7 @@ class FeaturedItem extends StatelessWidget {
                 ),
                 Container(
                   width: itemWidth * 0.5,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: Svg(Assets.assetsImagesFeaturedItemShape),
                       fit: BoxFit.fill,

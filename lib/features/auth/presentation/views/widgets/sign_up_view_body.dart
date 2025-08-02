@@ -65,7 +65,7 @@ class _SignUpViewBodyState extends State<SignUpViewBody> {
   }
 
   SnackBar agreeTirmsSnackBar() {
-    return SnackBar(
+    return const SnackBar(
       elevation: 0,
       behavior: SnackBarBehavior.floating,
       backgroundColor: Colors.transparent,
